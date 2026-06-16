@@ -24,9 +24,23 @@ void bubble_sort(int *arr, int n) {
 }
 
 void selection_sort(int *arr, int n) {
-    /* TODO: implementar */
-    (void)arr;
-    (void)n;
+    int i, j, min_idx, tmp;
+
+    for (i = 0; i < n - 1; i++) {
+        min_idx = i;
+
+        for (j = i + 1; j < n; j++) {
+            if (*(arr + j) < *(arr + min_idx)) {
+                min_idx = j;
+            }
+        }
+
+        if (min_idx != i) {
+            tmp = *(arr + i);
+            *(arr + i) = *(arr + min_idx);
+            *(arr + min_idx) = tmp;
+        }
+    }
 }
 
 void insertion_sort(int *arr, int n) {
@@ -48,10 +62,22 @@ int busqueda_lineal(int *arr, int n, int valor) {
 }
 
 int busqueda_binaria(int *arr, int n, int valor) {
-    /* TODO: implementar */
-    (void)arr;
-    (void)n;
-    (void)valor;
+    int izq = 0;
+    int der = n - 1;
+    int mid;
+
+    while (izq <= der) {
+        mid = izq + (der - izq) / 2;
+
+        if (*(arr + mid) == valor) {
+            return mid;
+        } else if (*(arr + mid) < valor) {
+            izq = mid + 1;
+        } else {
+            der = mid - 1;
+        }
+    }
+
     return -1;
 }
 

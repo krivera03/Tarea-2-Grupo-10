@@ -105,5 +105,5 @@ int buscar_ocurrencias(int *arr, int n, int valor, int *posiciones) {
     (void)n;
     (void)valor;
     (void)posiciones;
-    return 0;
+    return k;
 }

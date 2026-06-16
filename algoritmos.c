@@ -47,7 +47,14 @@ int busqueda_binaria(int *arr, int n, int valor) {
 }
 
 int buscar_ocurrencias(int *arr, int n, int valor, int *posiciones) {
-    /* TODO: implementar */
+    int k = 0;
+
+    for (int i = 0; i < n; i++){
+        if (arr[i] == valor) {
+            posiciones[k] = i;
+            k++;
+        }
+    }
     (void)arr;
     (void)n;
     (void)valor;
